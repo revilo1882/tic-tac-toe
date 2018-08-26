@@ -52,3 +52,8 @@ ol, ul {
 .toggled {
   font-weight: bold;
 }
+
+.reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
