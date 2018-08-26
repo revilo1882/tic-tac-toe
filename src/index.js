@@ -57,7 +57,6 @@ class Game extends React.Component {
   }
 
   handleClick(i) {
-
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -92,8 +91,14 @@ class Game extends React.Component {
         'Go to move #' + move + ' ' + calculatePosition(location[move - 1]):
         'Go to game start';
       return (
+
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button
+            onClick={() => this.jumpTo(move)}
+             className= { this.state.stepNumber === move ? "button toggled" : "button" }
+          >
+            {desc}
+          </button>
         </li>
       );
     });
@@ -161,5 +166,5 @@ function calculatePosition(location) {
     { col: 2, row: 3},
     { col: 3, row: 3},
   ]
-  return 'Column: ' + colRow[location].col + ' Row: ' + colRow[location].row
+  return 'Col: ' + colRow[location].col + ' Row: ' + colRow[location].row
 }
