@@ -81,7 +81,7 @@ class Game extends React.Component {
     });
   }
 
-  sortMoves(history) {
+  sortMoves() {
     this.setState({
       reverseSort: !this.state.reverseSort
     })
