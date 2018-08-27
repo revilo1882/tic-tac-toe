@@ -98,6 +98,7 @@ class Game extends React.Component {
 
   render() {
     const history = this.state.history;
+    console.log(history.length)
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
     const moves = history.map((step, move) => {
@@ -123,7 +124,11 @@ class Game extends React.Component {
     if (winner) {
       status = 'Winner: ' + winner.winSign;
       winningPos = winner.winLine
-    } else {
+    }
+    else if (history.length === 10) {
+      status = 'Draw'
+    }
+    else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
